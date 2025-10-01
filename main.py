@@ -310,21 +310,21 @@ async def start_course(callback: types.CallbackQuery):
             FSInputFile(lesson["file"]),
             caption=lesson["text"],
             parse_mode="HTML",
-            reply_markup=get_button("перейти к следующему", "next_lesson")
+            reply_markup=get_button("СЛЕДУЮЩИЙ УРОК", "next_lesson")
         )
     elif lesson.get("file"):  # если только фото
         await bot.send_photo(
             callback.message.chat.id,
             FSInputFile(lesson["file"]),
             parse_mode="HTML",
-            reply_markup=get_button("перейти к следующему", "next_lesson")
+            reply_markup=get_button("СЛЕДУЮЩИЙ УРОК", "next_lesson")
         )
     elif lesson.get("text"):  # если только текст
         await bot.send_message(
             callback.message.chat.id,
             lesson["text"],
             parse_mode="HTML",
-            reply_markup=get_button("перейти к следующему", "next_lesson")
+            reply_markup=get_button("СЛЕДУЮЩИЙ УРОК", "next_lesson")
         )
 
     # Сдвигаем индекс сразу
@@ -389,7 +389,7 @@ LIME AI и шаг за шагом создавайте всё более
     if idx == len(LESSONS) - 1:
         button = get_button("Завершить обучение", "finish_course")
     else:
-        button = get_button("Перейти к следующему", "next_lesson")
+        button = get_button("СЛЕДУЮЩИЙ УРОК", "next_lesson")
 
     # Фото с caption (кнопка не нужна)
     if lesson.get("type") == "photo" and lesson.get("file"):
