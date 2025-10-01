@@ -434,8 +434,8 @@ LIME AI и шаг за шагом создавайте всё более
     try:
         await callback.message.answer_photo(
             FSInputFile("end/end.png"),
-            caption=text
-            parse_mode="HTML"
+            caption=text,
+            parse_mode="HTML",
         )
     except Exception as e:
         await callback.message.answer(f"⚠️ Ошибка загрузки фото: {e}\n\n{text}")
